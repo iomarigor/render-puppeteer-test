@@ -13,8 +13,8 @@ app.get('/dni', async (req, res) => {
     // Lanzar una instancia de Puppeteer
     const browser = await puppeteer.launch({
       headless: 'new',
-      executablePath: '/usr/bin/chromium-browser',
-      args: ["--disable-notifications", "--no-sandbox"]
+      /* executablePath: '/usr/bin/chromium-browser',
+      args: ["--disable-notifications", "--no-sandbox"] */
     });
     const page = await browser.newPage();
 
@@ -67,8 +67,8 @@ app.get('/ruc', async (req, res) => {
     // Lanzar una instancia de Puppeteer
     const browser = await puppeteer.launch({
       headless: 'new',
-      executablePath: '/usr/bin/chromium-browser',
-      args: ["--disable-notifications", "--no-sandbox"]
+      /* executablePath: '/usr/bin/chromium-browser',
+      args: ["--disable-notifications", "--no-sandbox"] */
     });
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36');
