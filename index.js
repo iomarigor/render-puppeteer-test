@@ -36,6 +36,8 @@ app.get('/dni', async (req, res) => {
       const page = await browser.newPage();
   
       // Navegar a la página "https://eldni.com/"
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
       await page.goto('https://eldni.com/');
   
       // Rellenar el campo DNI y hacer clic en el botón Buscar
@@ -99,7 +101,7 @@ app.get('/dni', async (req, res) => {
       });
       const page = await browser.newPage();
       await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36');
-      //await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
       // Navegar a la página de SUNAT
       await page.goto('https://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaWeb.jsp');
   
