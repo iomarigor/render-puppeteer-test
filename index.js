@@ -36,14 +36,15 @@ app.get('/dni', async (req, res) => {
       const page = await browser.newPage();
   
       // Navegar a la página "https://eldni.com/"
-      await new Promise(resolve => setTimeout(resolve, 2000));
       
       await page.goto('https://eldni.com/');
-  
+      await page.waitForNavigation();
+
       // Rellenar el campo DNI y hacer clic en el botón Buscar
       await page.type('#dni', dni); // Reemplaza con el DNI que desees consultar
       await page.click('#btn-buscar-datos-por-dni');
-  
+      await page.waitForNavigation();
+
       // Esperar a que se cargue la página de resultados
       await page.waitForSelector('table');
   
@@ -101,14 +102,15 @@ app.get('/dni', async (req, res) => {
       });
       const page = await browser.newPage();
       await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36');
-      await new Promise(resolve => setTimeout(resolve, 2000));
       // Navegar a la página de SUNAT
       await page.goto('https://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaWeb.jsp');
-  
+      await page.waitForNavigation();
+
       // Rellenar el campo RUC y hacer clic en el botón Aceptar
       await page.type('#txtRuc', ruc);  // Reemplaza 'Número de RUC' con el RUC que desees consultar
       await page.click('#btnAceptar');
-  
+      await page.waitForNavigation();
+
       // Esperar a que se cargue la página de resultados
       await page.waitForSelector('.list-group-item-heading');
   
