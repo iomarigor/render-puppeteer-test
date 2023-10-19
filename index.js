@@ -38,26 +38,41 @@ app.get('/dni', async (req, res) => {
       // Navegar a la página "https://eldni.com/"
       
       await page.goto('https://eldni.com/');
+      console.log('1');
       await page.waitForNavigation();
 
       // Rellenar el campo DNI y hacer clic en el botón Buscar
       await page.type('#dni', dni); // Reemplaza con el DNI que desees consultar
+      console.log('2');
+
       await page.click('#btn-buscar-datos-por-dni');
+      console.log('3');
+
       await page.waitForNavigation();
 
       // Esperar a que se cargue la página de resultados
       await page.waitForSelector('table');
+      console.log('4');
   
       // Obtener la primera coincidencia de la etiqueta "table"
       const table = await page.$('table');
+      console.log('5');
+
       const tbody = await table.$('tbody');
+      console.log('6');
+
       const trs = await tbody.$$('tr');
+      console.log('7');
+
   
       // Iterar a través de las etiquetas "td" de la primera fila (encabezados)
       const headerTds = await trs[0].$$('td');
+      console.log('8');
+
       const headers = await Promise.all(headerTds.map(async (td) => {
         return await page.evaluate(element => element.textContent, td);
       }));
+      console.log('9');
   
       // Cerrar el navegador
       await browser.close();
