@@ -19,7 +19,6 @@ app.get('/dni', async (req, res) => {
       console.log('DNI START', dni);
       // Lanzar una instancia de Puppeteer
       const browser = await puppeteer.launch({
-        headless: 'new',
         args: [
             "--disable-setuid-sandbox",
             "--no-sandbox",
@@ -101,7 +100,6 @@ app.get('/dni', async (req, res) => {
       console.log('RUC START', ruc);
       // Lanzar una instancia de Puppeteer
       const browser = await puppeteer.launch({
-        headless: 'new',
         args: [
             "--disable-setuid-sandbox",
             "--no-sandbox",
@@ -119,11 +117,14 @@ app.get('/dni', async (req, res) => {
       await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36');
       // Navegar a la página de SUNAT
       await page.goto('https://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaWeb.jsp');
+      console.log('1');
       await page.waitForNavigation();
 
       // Rellenar el campo RUC y hacer clic en el botón Aceptar
       await page.type('#txtRuc', ruc);  // Reemplaza 'Número de RUC' con el RUC que desees consultar
+      console.log('2');
       await page.click('#btnAceptar');
+      console.log('3');
       await page.waitForNavigation();
 
       // Esperar a que se cargue la página de resultados
@@ -131,12 +132,14 @@ app.get('/dni', async (req, res) => {
   
       // Obtener las coincidencias de las etiquetas h4
       const headings = await page.$$('.list-group-item-heading');
+      console.log('4');
       const secondHeading = await headings[1].evaluate((heading) => heading.textContent);
-  
+      console.log('5');
       // Obtener las coincidencias de las etiquetas p
       const texts = await page.$$('.list-group-item-text');
+      console.log('6');
       const sixthText = await texts[4].evaluate((text) => text.textContent);
-  
+      console.log('7');
       // Cerrar el navegador
       await browser.close();
   
