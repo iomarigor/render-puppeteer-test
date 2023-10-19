@@ -1,18 +1,17 @@
 {
-  "name": "render-puppeteer-test",
+  "name": "web-scraping-sunat-reniec",
   "version": "1.0.0",
-  "type": "module",
+  "description": "",
   "main": "index.js",
-  "repository": "https://github.com/ProchaLu/render-puppeteer-test.git",
-  "author": "Lukas Prochazka <prochazka.lu@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2",
-    "puppeteer": "^19.7.2"
-  },
+  "type": "module",
   "scripts": {
-    "chrome": "yarn path && yarn find",
-    "path": "node -e \"console.log(require('puppeteer').executablePath())\" && echo \"File exists.\" || echo \"File does not exist.\"",
-    "find": "find / -name chrome | grep puppeteer | grep -v node_modules"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "puppeteer": "^21.3.8"
   }
 }
