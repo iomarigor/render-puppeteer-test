@@ -1,6 +1,5 @@
 
-import puppeteer from 'puppeteer';
-require("dotenv").config(); 
+import puppeteer from 'puppeteer'; 
 export const scrapingDNI = async (req, res) => {
   const { dni } = req.query;
   try {

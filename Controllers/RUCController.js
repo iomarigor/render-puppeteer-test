@@ -1,6 +1,5 @@
 
 import puppeteer from 'puppeteer';
-require("dotenv").config();
 
 export const scrapingRUC = async (req, res) => {
     const { ruc } = req.query;
