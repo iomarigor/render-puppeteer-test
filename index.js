@@ -43,7 +43,6 @@ app.get('/dni', async (req, res) => {
       // Rellenar el campo DNI y hacer clic en el botón Buscar
       await page.type('#dni', dni); // Reemplaza con el DNI que desees consultar
       await page.click('#btn-buscar-datos-por-dni');
-      await page.waitForNavigation();
 
       // Esperar a que se cargue la página de resultados
       await page.waitForSelector('table');
@@ -109,7 +108,6 @@ app.get('/dni', async (req, res) => {
       // Rellenar el campo RUC y hacer clic en el botón Aceptar
       await page.type('#txtRuc', ruc);  // Reemplaza 'Número de RUC' con el RUC que desees consultar
       await page.click('#btnAceptar');
-      await page.waitForNavigation();
 
       // Esperar a que se cargue la página de resultados
       await page.waitForSelector('.list-group-item-heading');
